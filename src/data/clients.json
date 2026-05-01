@@ -1,0 +1,20 @@
+[
+  {
+    "id": "client_001",
+    "email": "owner@mapleleafcafe.com",
+    "businessName": "Maple Leaf Café",
+    "siteUrl": "https://mapleleafcafe.com",
+    "plan": "growth",
+    "stripeCustomerId": "cus_example001",
+    "hoursPerMonth": 3
+  },
+  {
+    "id": "client_002",
+    "email": "hello@rivertonplumbing.com",
+    "businessName": "Riverton Plumbing Co.",
+    "siteUrl": "https://rivertonplumbing.com",
+    "plan": "starter",
+    "stripeCustomerId": "cus_example002",
+    "hoursPerMonth": 1
+  }
+]

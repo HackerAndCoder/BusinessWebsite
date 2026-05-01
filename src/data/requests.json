@@ -1,0 +1,20 @@
+[
+  {
+    "id": "req_001",
+    "clientId": "client_001",
+    "type": "feature",
+    "title": "Add online reservation form",
+    "description": "Would love a simple form on the homepage for table reservations.",
+    "status": "in-progress",
+    "createdAt": "2026-04-10T14:32:00Z"
+  },
+  {
+    "id": "req_002",
+    "clientId": "client_001",
+    "type": "bugfix",
+    "title": "Mobile menu not closing",
+    "description": "On iPhone the nav menu stays open after tapping a link.",
+    "status": "completed",
+    "createdAt": "2026-04-02T09:15:00Z"
+  }
+]
