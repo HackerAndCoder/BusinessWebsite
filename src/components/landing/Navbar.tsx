@@ -21,7 +21,7 @@ export default function Navbar() {
           <a href="#pricing" className="hover:text-gray-900 transition-colors">Pricing</a>
           <a href="#testimonials" className="hover:text-gray-900 transition-colors">Reviews</a>
           <Link
-            href="/dashboard"
+            href="/login"
             className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
           >
             Client Login
@@ -46,7 +46,7 @@ export default function Navbar() {
           <a href="#pricing" onClick={() => setOpen(false)}>Pricing</a>
           <a href="#testimonials" onClick={() => setOpen(false)}>Reviews</a>
           <Link
-            href="/dashboard"
+            href="/login"
             onClick={() => setOpen(false)}
             className="bg-blue-600 text-white px-4 py-2 rounded-lg text-center hover:bg-blue-700 transition-colors"
           >

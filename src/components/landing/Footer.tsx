@@ -11,7 +11,7 @@ export default function Footer() {
           <a href="mailto:hello@webcraftstudio.com" className="hover:text-white transition-colors">
             Contact
           </a>
-          <a href="/dashboard" className="hover:text-white transition-colors">Client Login</a>
+          <a href="/login" className="hover:text-white transition-colors">Client Login</a>
         </div>
         <p>&copy; {new Date().getFullYear()} WebCraftStudio. All rights reserved.</p>
       </div>
