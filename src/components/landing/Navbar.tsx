@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { useSession } from "next-auth/react";
+import { Menu, X, LayoutDashboard } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { data: session, status } = useSession();
+  const loaded = status !== "loading";
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-100">
@@ -20,12 +23,33 @@ export default function Navbar() {
           <a href="#clients" className="hover:text-gray-900 transition-colors">Clients</a>
           <a href="#pricing" className="hover:text-gray-900 transition-colors">Pricing</a>
           <a href="#testimonials" className="hover:text-gray-900 transition-colors">Reviews</a>
-          <Link
-            href="/login"
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            Client Login
-          </Link>
+
+          {loaded && (
+            session ? (
+              <Link
+                href="/dashboard"
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <LayoutDashboard size={15} />
+                Dashboard
+              </Link>
+            ) : (
+              <div className="flex items-center gap-3">
+                <Link
+                  href="/login"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  Log in
+                </Link>
+                <Link
+                  href="/#pricing"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Sign up
+                </Link>
+              </div>
+            )
+          )}
         </div>
 
         {/* Mobile toggle */}
@@ -45,13 +69,36 @@ export default function Navbar() {
           <a href="#clients" onClick={() => setOpen(false)}>Clients</a>
           <a href="#pricing" onClick={() => setOpen(false)}>Pricing</a>
           <a href="#testimonials" onClick={() => setOpen(false)}>Reviews</a>
-          <Link
-            href="/login"
-            onClick={() => setOpen(false)}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg text-center hover:bg-blue-700 transition-colors"
-          >
-            Client Login
-          </Link>
+
+          {loaded && (
+            session ? (
+              <Link
+                href="/dashboard"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <LayoutDashboard size={15} />
+                Dashboard
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  onClick={() => setOpen(false)}
+                  className="text-center border border-gray-200 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                  Log in
+                </Link>
+                <Link
+                  href="/#pricing"
+                  onClick={() => setOpen(false)}
+                  className="text-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Sign up
+                </Link>
+              </>
+            )
+          )}
         </div>
       )}
     </nav>
